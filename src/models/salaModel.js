@@ -7,4 +7,9 @@ async function listarSalas(){
 async function mandarNick(){
     return await db.findAll('entrar')
 }
-module.exports = {listarSalas};
+
+
+module.exports = 
+{   listarSalas,
+    mandarNick,
+};

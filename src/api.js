@@ -18,12 +18,13 @@ app.use('/' , router.get('/sobre' , (req, res)=>{
 }))
 
 app.use('/' , router.get('/salas' , async (req , res)=>{
+    
     const salaController = require("./controllers/salaController")
     let resp = await salaController.get()
     res.status(200).send(resp)
 }))
 
-app.use('/entrar' , router.get('/entrar' , async (req , res, next )=>{
+app.use('/entrar' , router.post('/entrar' , async (req , res, next )=>{
     const usuarioController = require("./controller/usuarioController")
     let resp = await usuarioController.entrar(req.body.nick)
     res.status(200).send(resp)
