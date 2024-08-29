@@ -22,4 +22,16 @@ async function insertOne(collection, objeto){
     return db.collection(collection).insertOne(objeto);
 }
 
-module.exports = {findAll, insertOne}
+let findOne = async (collection, _id) => {
+    const db = await connect();
+    let obj = await db.collection(collection).findOne({ '_id': new ObjectId(_id) });
+    return obj ? obj : false;
+  }
+
+let updateOne = async (collection, object, param)=>{
+    const db = await connect();
+    let result = await db.collection(collection).updateOne(param, {$set: object});
+    return result;
+}
+
+module.exports = {findAll, insertOne, findOne, updateOne}
