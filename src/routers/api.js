@@ -68,7 +68,7 @@ app.use("/", router.delete("/sala/sair", async (req, res) => {
     }
     const resp = await salaController.sair(req.headers.iduser, req.query.idsala)
     res.status(200).send(resp)
-    console.log("msg: Saiu da sala")
+
 }))
 
 module.exports= app

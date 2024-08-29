@@ -48,6 +48,6 @@ exports.sair = async (iduser, idsala) => {
     user.sala = {}
     await usuarioModel.alterarUsuario(user);
     if (await usuarioModel.alterarUsuario(user)) {
-        return { msg: "OK", timestamp: timestamp = Date.now() };
+        return { msg: "Saiu da sala", timestamp: timestamp = Date.now() };
     }
 }
