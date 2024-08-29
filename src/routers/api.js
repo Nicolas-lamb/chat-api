@@ -52,7 +52,6 @@ app.use('/', router.post('/sala/mensagem', async (req, res)=>{
     }
     let resp = await salaController.enviarMensagem(req.headers.nick, req.body.msg, req.body.idsala)
     res.status(200).send(resp);
-    res.status(400).send("Houve algum erro!")
 }))
 
 app.use('/', router.get('/sala/mensagens', async(req,res)=>{
