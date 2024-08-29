@@ -62,4 +62,13 @@ app.use('/', router.get('/sala/mensagens', async(req,res)=>{
     res.status(200).send(resp)
 }))
 
+app.use("/", router.delete("/sala/sair", async (req, res) => {
+    if (!token.checktoken(req.headers.token, req.headers.iduser, req.headers.nick)){ 
+        return false;
+    }
+    const resp = await salaController.sair(req.headers.iduser, req.query.idsala)
+    res.status(200).send(resp)
+    console.log("msg: Saiu da sala")
+}))
+
 module.exports= app

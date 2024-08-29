@@ -41,3 +41,13 @@ exports.buscarMensagens = async (idsala, timestamp)=>{
         "msgs":mensagens
     }
 }
+exports.sair = async (iduser, idsala) => {
+    const sala = await salaModel.buscarSala(idsala);
+    let usuarioModel = require('../models/usuarioModel');
+    let user = await usuarioModel.buscarUsuario(iduser);
+    user.sala = {}
+    await usuarioModel.alterarUsuario(user);
+    if (await usuarioModel.alterarUsuario(user)) {
+        return { msg: "OK", timestamp: timestamp = Date.now() };
+    }
+}
