@@ -12,4 +12,8 @@ let buscarUsuario = async(iduser)=>{
     return await db.updateOne("usuarios", user,{_id:user._id})
  } 
 
-module.exports = {registrarUsuario, buscarUsuario, alterarUsuario};
+ let removerUsuario = async (iduser) => {
+    return await db.deleteOne("usuarios", iduser);
+};
+
+module.exports = {registrarUsuario, buscarUsuario, alterarUsuario, removerUsuario};

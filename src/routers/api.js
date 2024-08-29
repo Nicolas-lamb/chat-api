@@ -71,4 +71,13 @@ app.use("/", router.delete("/sala/sair", async (req, res) => {
 
 }))
 
+app.use("/", router.delete("/sair", async (req, res) => {
+    if (!token.checktoken(req.headers.token, req.headers.iduser, req.headers.nick)){ 
+        return false;
+    }
+    const resp = await usuarioController.sairChat(req.headers.iduser)
+    res.status(200).send(resp)
+
+}))
+
 module.exports= app
